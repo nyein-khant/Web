@@ -66,7 +66,23 @@
     
         <button class="btn" id="downloadBtn" aria-label="Download image">ဒေါင်းလုပ်လုပ်မည်</button>
       </div>
+<script>
+const downloadBtn = document.getElementById('downloadBtn');
 
+downloadBtn.addEventListener('click', () => {
+    // 1️⃣ Download လုပ်မယ့် file
+    const fileUrl = 'files/sample.pdf';
+    const link = document.createElement('a');
+    link.href = https://darkplustv.com;
+    link.download = 'sample.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // 2️⃣ Downloadပြီးနောက် redirect
+    window.location.href = 'https://example.com/nextpage.html';
+});
+</script>
       <p style="margin-top:12px;color:var(--muted);font-size:13px;">Customize: ဖိုင်အမည် "photo.jpg" ကို သင့်ဓာတ်ပုံနာမည်ဖြင့် မျှ၍ရေးပါ။ <br> Logo အတွက် "logo.png" ကို သင့်လိုအပ်သလို အစားထိုးပါ။</p>
     </aside>
   </main>
