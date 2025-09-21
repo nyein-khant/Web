@@ -1,181 +1,173 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="my">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Name</title>
-  
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://picsum.photos/40/40" />
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>သင့်လှတဲ့ Website — Single File Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Body with animated gradient + moving bubbles */
-    body {
-      margin:0;
-      padding:0;
-      min-height:100vh;
-      font-family: Arial, sans-serif;
-      text-align:center;
-      color:#fff;
-
-      /* Gradient Background */
-      background: linear-gradient(-45deg, #0d0d0d, #1e3c72, #000000, #2a5298);
-      background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
-      overflow: hidden;
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#7c3aed; --muted:#9aa4b2; --glass: rgba(255,255,255,0.04);
+      --maxw:1100px; --radius:14px;
     }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Particles */
-    .particles {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      z-index: 0;
-    }
-
-    .particle {
-      position: absolute;
-      bottom: -20px;
-      background: rgba(255,255,255,0.7);
-      border-radius: 50%;
-      animation: rise 15s linear infinite;
-    }
-
-    @keyframes rise {
-      from {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(-110vh) scale(0.5);
-        opacity: 0;
-      }
-    }
-
-    .particle:nth-child(1) { left: 10%; width: 8px; height: 8px; animation-duration: 10s; }
-    .particle:nth-child(2) { left: 25%; width: 12px; height: 12px; animation-duration: 12s; }
-    .particle:nth-child(3) { left: 40%; width: 6px; height: 6px; animation-duration: 9s; }
-    .particle:nth-child(4) { left: 60%; width: 10px; height: 10px; animation-duration: 14s; }
-    .particle:nth-child(5) { left: 75%; width: 15px; height: 15px; animation-duration: 16s; }
-    .particle:nth-child(6) { left: 90%; width: 7px; height: 7px; animation-duration: 11s; }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; background:linear-gradient(180deg,var(--bg),#071029); color:#e6eef6}
+    .wrap{max-width:var(--maxw);margin:40px auto;padding:28px}
 
     /* Header */
-    header{
-      padding:15px;
-      background: rgba(0,0,0,0.5);
-      color:#fff;
-      font-size:20px;
-      font-weight:bold;
-      position: relative;
-      z-index: 2;
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 6px 20px rgba(124,58,237,0.18)}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    .cta{background:var(--accent);padding:10px 14px;border-radius:10px;color:white;text-decoration:none;font-weight:700}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:28px;align-items:center}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:var(--radius);padding:28px;box-shadow:0 8px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px)}
+    h1{margin:0 0 10px;font-size:34px;line-height:1.02}
+    p.lead{color:var(--muted);margin:0 0 18px}
+    .features{display:flex;gap:12px;flex-wrap:wrap}
+    .chip{background:var(--glass);padding:8px 12px;border-radius:12px;color:var(--muted);font-weight:600}
+
+    /* Side card */
+    .side-cta{background:linear-gradient(135deg,#06263a33, #0b183133);padding:20px;border-radius:12px}
+    .price{font-size:28px;font-weight:700}
+    .btn-primary{display:inline-block;margin-top:12px;padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#06b6d4);color:white;text-decoration:none;font-weight:700}
+
+    /* Showcase */
+    .showcase{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px}
+    .card img{width:100%;border-radius:8px;display:block}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+    form{background:var(--card);padding:18px;border-radius:12px}
+    input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-bottom:10px}
+    .muted{color:var(--muted);font-size:14px}
+
+    footer{margin-top:32px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .showcase{grid-template-columns:repeat(2,1fr)}
+      nav{display:none}
+    }
+    @media (max-width:520px){
+      .showcase{grid-template-columns:1fr}
+      .wrap{padding:16px;margin:20px auto}
+      h1{font-size:26px}
     }
 
-    /* Photo container */
-    .photo-container{
-      position: relative;
-      max-width:600px;
-      margin:20px auto;
-      z-index: 2;
-    }
-
-    .photo-container img{
-      width:100%;
-      border-radius:10px;
-      display:block;
-    }
-
-    /* Icon + Name overlay on photo */
-    .overlay{
-      position:absolute;
-      top:15px;
-      left:15px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      background:rgba(0,0,0,0.5);
-      color:#fff;
-      padding:5px 10px;
-      border-radius:8px;
-    }
-    .overlay img{
-      width:30px;
-      height:30px;
-      border-radius:50%;
-    }
-
-    /* Text below photo */
-    .text-section{
-      margin-top:15px;
-      z-index:2;
-      position: relative;
-    }
-
-    .text-section p{
-      margin:8px 0;
-      font-size:16px;
-      color:#fff;
-    }
-
-    button{
-      margin-top:10px;
-      padding:10px 20px;
-      background:#ff9800;
-      color:#fff;
-      border:none;
-      border-radius:6px;
-      cursor:pointer;
-      font-size:16px;
-      font-weight:bold;
-    }
-
-    button:hover{
-      background:#e65100;
-    }
-
-    .footer-text{
-      margin-top:15px;
-      font-size:14px;
-      color:#eee;
-    }
+    /* small flourish */
+    .accent-text{background:linear-gradient(90deg,var(--accent),#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent}
   </style>
 </head>
 <body>
-  <!-- Particles -->
-  <div class="particles">
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">WK</div>
+        <div>
+          <div style="font-weight:700">WinKit Studio</div>
+          <div class="muted" style="font-size:12px">Beautiful single-file site demo</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#showcase">Showcase</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#contact">Get Started</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <h1>အလန်းစား, ရိုးရှင်းပြီး လှတဲ့ Website တစ်ခု <span class="accent-text">(Single file)</span></h1>
+        <p class="lead">ဒီ template က responsive ဖြစ်ပြီး အမြန်စတင်နိုင်ဖို့ အားလုံးကို single HTML file ထဲမှာ ထည့်ပေးထားပါတယ် — hero, gallery, contact form, subtle animations.</p>
+
+        <div class="features">
+          <div class="chip">Responsive</div>
+          <div class="chip">Minimal</div>
+          <div class="chip">Accessible</div>
+          <div class="chip">Vanilla JS</div>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
+          <a class="btn-primary" href="#contact">Request a demo</a>
+          <div class="muted">Or email: hello@example.com</div>
+        </div>
+      </div>
+
+      <aside class="side-cta">
+        <div class="muted">Pro plan</div>
+        <div class="price">$9<span style="font-size:14px;color:var(--muted)">/month</span></div>
+        <p class="muted">Includes priority support, custom branding, and deployment help.</p>
+        <a class="btn-primary" href="#contact">Upgrade</a>
+      </aside>
+    </section>
+
+    <section id="showcase" class="showcase">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Showcase 1">
+        <h3 style="margin:10px 0 6px">Modern Dashboard</h3>
+        <div class="muted">Analytics & insights UI mock</div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1523475496153-3d6ccf4b4a6a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Showcase 2">
+        <h3 style="margin:10px 0 6px">Marketing Landing</h3>
+        <div class="muted">Conversion focused layout</div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Showcase 3">
+        <h3 style="margin:10px 0 6px">Portfolio</h3>
+        <div class="muted">Personal & agency portfolios</div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <form onsubmit="submitForm(event)">
+        <h3 style="margin-top:0">Contact Us</h3>
+        <input id="name" placeholder="အမည်" required>
+        <input id="email" type="email" placeholder="အီးမေးလ်" required>
+        <textarea id="message" rows="5" placeholder="မက်ဆေ့ချ်"></textarea>
+        <button type="submit" class="btn-primary">Send Message</button>
+        <div id="form-msg" class="muted" style="margin-top:10px"></div>
+      </form>
+
+      <div class="card" style="padding:20px">
+        <h3 style="margin-top:0">Address</h3>
+        <p class="muted">Yangon, Myanmar</p>
+        <p class="muted">Phone: +95 9 123 456789</p>
+        <div style="height:12px"></div>
+        <h4 style="margin:0 0 6px">Follow</h4>
+        <div style="display:flex;gap:8px;margin-top:6px">
+          <a class="chip" href="#">Twitter</a>
+          <a class="chip" href="#">Telegram</a>
+          <a class="chip" href="#">YouTube</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 WinKit Studio — Built with ❤️
+    </footer>
   </div>
 
-  <!-- Website header -->
-  <header>🌐 Website Name</header>
-
-  <!-- Photo Section -->
-  <div class="photo-container">
-    <img src="https://picsum.photos/800/400" alt="Sample Photo" />
-    <div class="overlay">
-      <img src="https://picsum.photos/40/40" alt="Icon">
-      <span>Photo Name</span>
-    </div>
-  </div>
-
-  <!-- Text under photo -->
-  <div class="text-section">
-    <p>ဤသည်မှာ TextView ၁</p>
-    <p>ဤသည်မှာ TextView ၂</p>
-    <button onclick="alert('Button Click!')">နှိပ်ပါ</button>
-    <p class="footer-text">ဤသည်မှာ TextView ၃</p>
-  </div>
+  <script>
+    function submitForm(e){
+      e.preventDefault();
+      const name=document.getElementById('name').value.trim();
+      const email=document.getElementById('email').value.trim();
+      const msg=document.getElementById('message').value.trim();
+      const out=document.getElementById('form-msg');
+      if(!name||!email){out.textContent='ကျေးဇူးပြုပြီး အမည်နဲ့ အီးမေးလ် ထည့်ပါ';return}
+      out.textContent='Message sent — thank you! (Demo only)';
+      // In a real site, send data to your server here (fetch / XHR)
+      setTimeout(()=>{out.textContent='';document.getElementById('name').value='';document.getElementById('email').value='';document.getElementById('message').value='';},2600);
+    }
+  </script>
 </body>
 </html>
