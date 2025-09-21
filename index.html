@@ -63,46 +63,11 @@
       <p class="caption">Jaoan ဇတ်ကားများကို မြန်မာစာတန်းထိုးတွေကြီးပဲကြည့်လို့ရပါတယ်ဗျ </p>
 
       <div class="actions">
-    
-        <button class="btn" id="downloadBtn"  href="https://www.mediafire.com/file/gk58s4lgld5v93i/Dark_Ness_8.6.apk/file" aria-label="Download image">ဒေါင်းလုပ်လုပ်မည်</button>
+  
     <a class=" btn btn-success container-fluid  " href="https://www.mediafire.com/file/gk58s4lgld5v93i/Dark_Ness_8.6.apk/file" target="_blank">ဒေါင်းလုပ်လုပ်မည်</a>
       </div>                
       <p style="margin-top:12px;color:var(--muted);font-size:13px;">Customize: ဖိုင်အမည် "photo.jpg" ကို သင့်ဓာတ်ပုံနာမည်ဖြင့် မျှ၍ရေးပါ။ <br> Logo အတွက် "logo.png" ကို သင့်လိုအပ်သလို အစားထိုးပါ။</p>
     </aside>
   </main>
-
-  <script>
-    const btn = document.getElementById('actionBtn');
-    const dl = document.getElementById('downloadBtn');
-    const img = document.getElementById('mainPhoto');
-
-    // Button: open image in a simple fullscreen modal
-    btn.addEventListener('click', ()=>{
-      const modal = document.createElement('div');
-      modal.style.position='fixed';modal.style.inset='0';modal.style.background='rgba(2,6,23,0.85)';modal.style.display='flex';modal.style.alignItems='center';modal.style.justifyContent='center';modal.style.zIndex=9999;
-      modal.tabIndex = -1;
-
-      const big = document.createElement('img');
-      big.src = img.src; big.alt = img.alt; big.style.maxWidth='94%'; big.style.maxHeight='94%'; big.style.borderRadius='10px'; big.style.boxShadow='0 18px 60px rgba(2,6,23,0.8)';
-
-      modal.appendChild(big);
-      document.body.appendChild(modal);
-
-      // close on click or ESC
-      modal.addEventListener('click', ()=> modal.remove());
-      window.addEventListener('keydown', function esc(e){ if(e.key==='Escape'){ modal.remove(); window.removeEventListener('keydown', esc); } });
-    });
-
-    // Download button: trigger image download
-    dl.addEventListener('click', ()=>{
-      const link = document.createElement('a');
-      link.href = https://www.mediafire.com/file/gk58s4lgld5v93i/Dark_Ness_8.6.apk/file;
-      const filename = img.src.split('/').pop() || 'photo.jpg';
-      link.download = filename;
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-    });
-  </script>
 </body>
 </html>
