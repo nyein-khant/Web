@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="my">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Photo + Button — Simple HTML Page</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa6b2;--accent:#06b6d4}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Noto Sans Myanmar',sans-serif;background:linear-gradient(180deg,var(--bg),#071020);color:#e6f0f6;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:16px;box-shadow:0 10px 30px rgba(2,6,23,0.7);overflow:hidden;max-width:900px;width:100%;display:grid;grid-template-columns:1fr 360px}
+    .photo-wrap{position:relative;min-height:320px;display:flex;align-items:center;justify-content:center;background:linear-gradient(90deg,rgba(6,182,212,0.04),transparent)}
+    .photo-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+    .side{padding:28px 22px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+    h1{margin:0;font-size:20px}
+    p{margin:0;color:var(--muted)}
+    .btn{appearance:none;border:0;background:linear-gradient(90deg,var(--accent),#0ea5a3);padding:12px 18px;border-radius:12px;color:#042124;font-weight:600;cursor:pointer;font-size:15px;box-shadow:0 6px 18px rgba(6,182,212,0.14);transition:transform .14s ease,box-shadow .14s ease}
+    .btn:active{transform:translateY(1px)}
+    .btn:focus{outline:3px solid rgba(6,182,212,0.16)}
+    .actions{display:flex;gap:10px;margin-top:8px}
+    .caption{font-size:13px;color:var(--muted)}
+    /* responsive */
+    @media (max-width:820px){
+      .card{grid-template-columns:1fr;}
+      .side{align-items:center;text-align:center}
+    }
+  </style>
+</head>
+<body>
+  <main class="card" role="main">
+    <!-- Replace "photo.jpg" with your image file name. Use a high-resolution image for best results. -->
+    <div class="photo-wrap" aria-hidden="false">
+      <img src="photo.jpg" alt="သင့်ဓာတ်ပုံ" id="mainPhoto">
+    </div>
+
+    <aside class="side">
+      <h1>Single photo + Button</h1>
+      <p class="caption">ဤစာမျက်နှာတွင် ဓာတ်ပုံတစ်ပုံနှင့် Button တစ်ခုသာ ပါဝင်သည်။<br>Button ကို နှိပ်ခြင်းဖြင့် ဓာတ်ပုံကို မျက်နှာပြင်ပြသနိုင်သည်။</p>
+
+      <div class="actions">
+        <button class="btn" id="actionBtn" aria-controls="mainPhoto">ဓာတ်ပုံကြည့်မည်</button>
+        <button class="btn" id="downloadBtn" aria-label="Download image">ဒေါင်းလုပ်</button>
+      </div>
+
+      <p style="margin-top:12px;color:var(--muted);font-size:13px;">Customize: ဖိုင်အမည် "photo.jpg" ကို သင့်ဓာတ်ပုံနာမည်ဖြင့် မျှ၍ရေးပါ။</p>
+    </aside>
+  </main>
+
+  <script>
+    const btn = document.getElementById('actionBtn');
+    const dl = document.getElementById('downloadBtn');
+    const img = document.getElementById('mainPhoto');
+
+    // Button: open image in a simple fullscreen modal
+    btn.addEventListener('click', ()=>{
+      const modal = document.createElement('div');
+      modal.style.position='fixed';modal.style.inset='0';modal.style.background='rgba(2,6,23,0.85)';modal.style.display='flex';modal.style.alignItems='center';modal.style.justifyContent='center';modal.style.zIndex=9999;
+      modal.tabIndex = -1;
+
+      const big = document.createElement('img');
+      big.src = img.src; big.alt = img.alt; big.style.maxWidth='94%'; big.style.maxHeight='94%'; big.style.borderRadius='10px'; big.style.boxShadow='0 18px 60px rgba(2,6,23,0.8)';
+
+      modal.appendChild(big);
+      document.body.appendChild(modal);
+
+      // close on click or ESC
+      modal.addEventListener('click', ()=> modal.remove());
+      window.addEventListener('keydown', function esc(e){ if(e.key==='Escape'){ modal.remove(); window.removeEventListener('keydown', esc); } });
+    });
+
+    // Download button: trigger image download
+    dl.addEventListener('click', ()=>{
+      const link = document.createElement('a');
+      link.href = img.src;
+      // try to infer filename
+      const filename = img.src.split('/').pop() || 'photo.jpg';
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    });
+  </script>
+</body>
+</html>
