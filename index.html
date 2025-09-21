@@ -50,15 +50,110 @@
   </style>
 </head>
 <body>
-  <main class="card" role="main">
-    <!-- Replace "photo.jpg" with your image file name. Use a high-resolution image for best results. -->
-    <div class="photo-wrap" aria-hidden="false">
-      <img src="https://raw.githubusercontent.com/nyein-khant/TopRate/refs/heads/main/Screenshot_2025-09-21-10-55-38-527_com.darksite.tky.jpg" alt="သင့်ဓာတ်ပုံ" id="mainPhoto">
-      <div class="overlay">
-        <!-c Replace logo.png with your logo file -->
-      <img src="https://raw.githubusercontent.com/nyein-khant/TopRate/refs/heads/main/app_icon.png" alt="Logo">
-        <h2>Zkar MM</h2>
-      </div>
+  <div class="slider" id="slider" aria-roledescription="carousel">
+
+    <!-- logo + title overlay -->
+    <div class="branding" aria-hidden="true">
+      <img src="https://picsum.photos/seed/logo/200/200" alt="Logo">
+      <div class="title">သင့်ဆိုဒ်နာမည်</div>
+    </div>
+
+    <!-- slides wrapper -->
+    <div class="slides" id="slides">
+      <figure class="slide" data-index="0">
+        <img src="https://picsum.photos/1200/600?random=101" alt="Slide 1">
+        <figcaption class="caption"><h3>ပုံ ၁ — ခေါင်းစဉ်</h3></figcaption>
+      </figure>
+<figure class="slide" data-index="1">
+<img src="https://picsum.photos/1200/600?random=102" alt="Slide 2">
+<figcaption class="caption"><h3>ပုံ ၂ — ခေါင်းစဉ်</h3></figcaption>
+</figure>
+
+
+<figure class="slide" data-index="2">
+<img src="https://picsum.photos/1200/600?random=103" alt="Slide 3">
+<figcaption class="caption"><h3>ပုံ ၃ — ခေါင်းစဉ်</h3></figcaption>
+</figure>
+</div>
+
+
+<!-- navigation buttons -->
+<div class="nav" aria-hidden="false">
+<button class="btn" id="prevBtn" aria-label="Previous slide">◀</button>
+<button class="btn" id="nextBtn" aria-label="Next slide">▶</button>
+</div>
+
+
+<!-- dots -->
+<div class="dots" id="dots" role="tablist" aria-label="Slide dots"></div>
+</div>
+<script>
+(function(){
+const slidesEl = document.getElementById('slides');
+const slides = Array.from(document.querySelectorAll('.slide'));
+const dotsEl = document.getElementById('dots');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const slider = document.getElementById('slider');
+let current = 0;
+let autoplay = true;
+let interval = 4000; // milliseconds
+let timer = null;
+
+
+function goTo(index){
+current = (index + slides.length) % slides.length;
+slidesEl.style.transform = `translateX(calc(-${current} * 100%))`;
+updateDots();
+}
+function next(){ goTo(current + 1); }
+function prev(){ goTo(current - 1); }
+// dots
+slides.forEach((s,i)=>{
+const d = document.createElement('button');
+d.className = 'dot';
+d.setAttribute('aria-label', `Go to slide ${i+1}`);
+d.setAttribute('role','tab');
+d.addEventListener('click', ()=>{ goTo(i); resetTimer(); });
+dotsEl.appendChild(d);
+});
+
+
+function updateDots(){
+const dots = Array.from(dotsEl.children);
+dots.forEach((d,i)=> d.classList.toggle('active', i===current));
+}
+
+prevBtn.addEventListener('click', ()=>{ prev(); resetTimer(); });
+nextBtn.addEventListener('click', ()=>{ next(); resetTimer(); });
+/ autoplay
+function startTimer(){ if(!autoplay) return; timer = setInterval(next, interval); }
+function stopTimer(){ if(timer){ clearInterval(timer); timer = null; } }
+function resetTimer(){ stopTimer(); startTimer(); }
+
+
+slider.addEventListener('mouseenter', ()=> stopTimer());
+slider.addEventListener('mouseleave', ()=> startTimer());
+
+
+// keyboard
+slider.tabIndex = 0;
+slider.addEventListener('keydown', (e)=>{
+if(e.key === 'ArrowLeft') prev();
+if(e.key === 'ArrowRight') next();
+});
+
+
+// init
+goTo(0);
+startTimer();
+
+
+// Expose simple API for future customization
+window._simpleSlider = { goTo, next, prev, startTimer, stopTimer };
+})();
+</script>
+
     </div>
 
     <aside class="side">
