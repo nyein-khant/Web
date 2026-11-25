@@ -1,173 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<html lang="my">
-<head
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>သင့်လှတဲ့ Website — Single File Demo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0f1724; --card:#0b1220; --accent:#7c3aed; --muted:#9aa4b2; --glass: rgba(255,255,255,0.04);
-      --maxw:1100px; --radius:14px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; background:linear-gradient(180deg,var(--bg),#071029); color:#e6eef6}
-    .wrap{max-width:var(--maxw);margin:40px auto;padding:28px}
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://azuki990.github.io/download/templates/css/icofont.min.css">
+  <link rel="stylesheet" href="https://azuki990.github.io/download/templates/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://azuki990.github.io/download/templates/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://azuki990.github.io/download/templates/css/aos.css">
+  <link rel="stylesheet" href="https://azuki990.github.io/download/templates/css/style.css">
+  <link rel="stylesheet" href="https://azuki990.github.io/download/templates/css/responsive.css">
+  <link rel="stylesheet" href="https://azuki990.github.io/download/templates/css/custom-style.css">
 
-    /* Header */
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 6px 20px rgba(124,58,237,0.18)}
-    nav{display:flex;gap:18px;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;font-weight:600}
-    .cta{background:var(--accent);padding:10px 14px;border-radius:10px;color:white;text-decoration:none;font-weight:700}
-
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:28px;align-items:center}
-    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:var(--radius);padding:28px;box-shadow:0 8px 30px rgba(2,6,23,0.6);backdrop-filter: blur(6px)}
-    h1{margin:0 0 10px;font-size:34px;line-height:1.02}
-    p.lead{color:var(--muted);margin:0 0 18px}
-    .features{display:flex;gap:12px;flex-wrap:wrap}
-    .chip{background:var(--glass);padding:8px 12px;border-radius:12px;color:var(--muted);font-weight:600}
-
-    /* Side card */
-    .side-cta{background:linear-gradient(135deg,#06263a33, #0b183133);padding:20px;border-radius:12px}
-    .price{font-size:28px;font-weight:700}
-    .btn-primary{display:inline-block;margin-top:12px;padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#06b6d4);color:white;text-decoration:none;font-weight:700}
-
-    /* Showcase */
-    .showcase{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px}
-    .card img{width:100%;border-radius:8px;display:block}
-
-    /* Contact */
-    .contact{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
-    form{background:var(--card);padding:18px;border-radius:12px}
-    input,textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;margin-bottom:10px}
-    .muted{color:var(--muted);font-size:14px}
-
-    footer{margin-top:32px;color:var(--muted);font-size:13px;text-align:center}
-
-    /* Responsive */
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr;}
-      .showcase{grid-template-columns:repeat(2,1fr)}
-      nav{display:none}
-    }
-    @media (max-width:520px){
-      .showcase{grid-template-columns:1fr}
-      .wrap{padding:16px;margin:20px auto}
-      h1{font-size:26px}
-    }
-
-    /* small flourish */
-    .accent-text{background:linear-gradient(90deg,var(--accent),#06b6d4);-webkit-background-clip:text;background-clip:text;color:transparent}
-  </style>
+  <title>Dark Plus</title>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">WK</div>
-        <div>
-          <div style="font-weight:700">WinKit Studio</div>
-          <div class="muted" style="font-size:12px">Beautiful single-file site demo</div>
-        </div>
-      </div>
+  <div class="page_wrapper">
+    
+    <!-- Preloader -->
+    <div id="preloader">
+      <div id="loader"></div>
+    </div>
 
-      <nav>
-        <a href="#features">Features</a>
-        <a href="#showcase">Showcase</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="#contact">Get Started</a>
-      </nav>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <nav class="navbar navbar-expand-lg">
+          <a class="navbar-brand" href="/">
+            <img src="templates/Picsart_25-07-19_19-17-59-330.png" alt="Dark Plus Logo">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+              <div class="toggle-wrap">
+                <span class="toggle-bar"></span>
+              </div>
+            </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/darkplus0564?mibextid=ZbWKwL">Facebook</a></li>
+              <li class="nav-item"><a class="nav-link" href="">Telegram</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </header>
 
-    <section class="hero">
-      <div class="hero-card">
-        <h1>အလန်းစား, ရိုးရှင်းပြီး လှတဲ့ Website တစ်ခု <span class="accent-text">(Single file)</span></h1>
-        <p class="lead">ဒီ template က responsive ဖြစ်ပြီး အမြန်စတင်နိုင်ဖို့ အားလုံးကို single HTML file ထဲမှာ ထည့်ပေးထားပါတယ် — hero, gallery, contact form, subtle animations.</p>
-
-        <div class="features">
-          <div class="chip">Responsive</div>
-          <div class="chip">Minimal</div>
-          <div class="chip">Accessible</div>
-          <div class="chip">Vanilla JS</div>
+    <!-- Banner Section -->
+    <section class="banner_section">
+      <div class="container">
+        <div class="anim_line">
+          <!-- 9 anim lines -->
+          <span><img src="templates/frontend/images/anim_line.png" alt="line"></span>
+          <span><img src="templates/frontend/images/anim_line.png" alt="line"></span>
+          <span><img src="templates/frontend/images/anim_line.png" alt="line"></span>
+          <span><img src="templates/frontend/images/anim_line.png" alt="line"></span>
+          <span><img src="templates/frontend/images/anim_line.png" alt="line"></span>
+          <span><img src="templates/frontend/images/anim_line.png" alt="line"></span>
+          <span><img src="templates/frontend/images/anim_line.png" alt="line"></span>
+          <span><img src="templates/frontend/images/anim_line.png" alt="line"></span>
+          <span><img src="templates/frontend/images/anim_line.png" alt="line"></span>
         </div>
 
-        <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
-          <a class="btn-primary" href="#contact">Request a demo</a>
-          <div class="muted">Or email: hello@example.com</div>
-        </div>
-      </div>
+        <div class="row">
+          <!-- Banner text -->
+          <div class="col-lg-6 col-md-12" data-aos="fade-right" data-aos-duration="1500">
+            <div class="banner_text">
+              <h1>Dark Plus Application<br><span style="font-size: 25px; color: #165a93;">Japan MMSUB</span></h1>
+              <p>Download ခလုပ်လေးကို နှိပ်ပြီး Dark Plus App ကို ရယူလိုက်ပါ။</p>
+            </div>
+            <div class="flex" style="margin-top: 50px;">
+              <a class="justify-between" href="https://github.com/azuki33609/azuki/raw/refs/heads/main/Dark_Pluscom.lh.DarkPlusProv7.9.apk">
+                <img class="android-apk-direct-download" src="https://azuki990.github.io/download/templates/apk-direct-download.png" alt="Download Dark Plus APK">
+              </a>
+            </div>
+          </div>
 
-      <aside class="side-cta">
-        <div class="muted">Pro plan</div>
-        <div class="price">$9<span style="font-size:14px;color:var(--muted)">/month</span></div>
-        <p class="muted">Includes priority support, custom branding, and deployment help.</p>
-        <a class="btn-primary" href="#contact">Upgrade</a>
-      </aside>
-    </section>
-
-    <section id="showcase" class="showcase">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Showcase 1">
-        <h3 style="margin:10px 0 6px">Modern Dashboard</h3>
-        <div class="muted">Analytics & insights UI mock</div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1523475496153-3d6ccf4b4a6a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Showcase 2">
-        <h3 style="margin:10px 0 6px">Marketing Landing</h3>
-        <div class="muted">Conversion focused layout</div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Showcase 3">
-        <h3 style="margin:10px 0 6px">Portfolio</h3>
-        <div class="muted">Personal & agency portfolios</div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact">
-      <form onsubmit="submitForm(event)">
-        <h3 style="margin-top:0">Contact Us</h3>
-        <input id="name" placeholder="အမည်" required>
-        <input id="email" type="email" placeholder="အီးမေးလ်" required>
-        <textarea id="message" rows="5" placeholder="မက်ဆေ့ချ်"></textarea>
-        <button type="submit" class="btn-primary">Send Message</button>
-        <div id="form-msg" class="muted" style="margin-top:10px"></div>
-      </form>
-
-      <div class="card" style="padding:20px">
-        <h3 style="margin-top:0">Address</h3>
-        <p class="muted">Yangon, Myanmar</p>
-        <p class="muted">Phone: +95 9 123 456789</p>
-        <div style="height:12px"></div>
-        <h4 style="margin:0 0 6px">Follow</h4>
-        <div style="display:flex;gap:8px;margin-top:6px">
-          <a class="chip" href="#">Twitter</a>
-          <a class="chip" href="#">Telegram</a>
-          <a class="chip" href="#">YouTube</a>
+          <!-- Banner slider -->
+          <div class="col-lg-6 col-md-12" data-aos="fade-in" data-aos-duration="1500">
+            <div class="banner_slider">
+              <div id="frmae_slider" class="owl-carousel owl-theme">
+                <div class="item"><div class="slider_img"><img src="https://azuki990.github.io/download/templates/images/home.png" alt="Slide 1"></div></div>
+                <div class="item"><div class="slider_img"><img src="https://azuki990.github.io/download/templates/images/see.png" alt="Slide 2"></div></div>
+                <div class="item"><div class="slider_img"><img src="https://azuki990.github.io/download/templates/images/Picsart_25-07-18_16-16-23-563.jpg" alt="Slide 3"></div></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- Password Section -->
+    <section class="row_am features_section" id="features">
+      <div class="container">
+        <div class="section_title" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+          <h2>-- Passwort --</h2>
+        </div>
+        <div class="feature_detail">
+          <div class="left_data feature_box">
+            <div class="data_block" data-aos="fade-right" data-aos-duration="1500">
+              <div class="icon"></div>
+              <div class="text">
+                <p class="mb-0">အောကားကြည့်ရန်အောက်မာ ( ၅၅၅၅၅၅ ) ထည့်ပေးပါ။</p>
+              </div>
+            </div>
+          </div>
+          <div class="feature_img" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+            <img src="https://azuki990.github.io/download/templates/images/passwort.png" alt="Password Image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-      © 2025 WinKit Studio — Built with ❤️
+      <div class="bottom_footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p style="color: black;">© Copyrights 2024. All rights reserved.</p>
+            </div>
+            <div class="col-md-6">
+              <p class="developer_text" style="color: black;">
+                Developed by 
+                <a href="https://t.me/linhtet3211" target="_blank" style="color: black; font-weight: bold; text-decoration: none;">
+                  Dark Plus
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </footer>
+
+    <div class="purple_backdrop"></div>
   </div>
 
-  <script>
-    function submitForm(e){
-      e.preventDefault();
-      const name=document.getElementById('name').value.trim();
-      const email=document.getElementById('email').value.trim();
-      const msg=document.getElementById('message').value.trim();
-      const out=document.getElementById('form-msg');
-      if(!name||!email){out.textContent='ကျေးဇူးပြုပြီး အမည်နဲ့ အီးမေးလ် ထည့်ပါ';return}
-      out.textContent='Message sent — thank you! (Demo only)';
-      // In a real site, send data to your server here (fetch / XHR)
-      setTimeout(()=>{out.textContent='';document.getElementById('name').value='';document.getElementById('email').value='';document.getElementById('message').value='';},2600);
-    }
-  </script>
-</body
+  <!-- Scripts -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="https://azuki990.github.io/download/templates/js/jquery.js"></script>
+  <script src="https://azuki990.github.io/download/templates/js/owl.carousel.min.js"></script>
+  <script src="https://azuki990.github.io/download/templates/js/bootstrap.min.js"></script>
+  <script src="https://azuki990.github.io/download/templates/js/aos.js"></script>
+  <script src="https://azuki990.github.io/download/templates/js/main.js"></script>
+</body>
 </html>
